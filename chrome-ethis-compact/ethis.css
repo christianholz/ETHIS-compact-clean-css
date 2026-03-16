@@ -1,0 +1,212 @@
+/* ===== ETHIS Clean List View ===== */
+
+/* Hide junk (scoped to launchpad pages only) */
+.sapUshellPage .sapMGTWithoutImageHoverOverlay,
+.sapUshellPage .sapMGTFocusDiv,
+.sapUshellPage .sapFGridContainerDummyArea,
+.sapUshellPage .sapUshellSectionCompactArea,
+.sapUshellPage [id$="-flatArea"],
+.sapUshellPage .sapUiHiddenPlaceholder,
+.sapUshellPage .sapMPageFooter,
+.sapUshellPage .sapMPageFloatingFooter,
+.sapUshellPage .sapMImageContent,
+.sapUshellPage .sapMImageContentImageIcon,
+.sapUshellPage .sapMNCScale,
+.sapUshellPage .sapMTileCntFtrTxt,
+.sapUshellPage .sapMNCIconImage,
+.sapUshellPage .sapMNCValue .sapUiIcon {
+  display: none !important;
+}
+
+/* Grid -> flex column */
+.sapFGridContainer.sapUshellSectionDefaultArea {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  min-height: 0 !important;
+}
+
+/* Grid items */
+.sapFGridContainerItemWrapper {
+  height: auto !important;
+  width: auto !important;
+  grid-area: unset !important;
+  padding: 2px 0 !important;
+  margin: 0 !important;
+}
+
+/* Tile link - flex row for ordering: Title, Number, Subtitle */
+a.sapMGT {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: baseline !important;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 2px 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  color: #d0d0d0 !important;
+  text-decoration: none !important;
+  line-height: 1.4 !important;
+}
+
+/* Hover - no frame, just underline */
+html.sap-desktop a.sapMGT:hover,
+html.sap-desktop a.sapMGT:hover:not(.sapMGTPressActive),
+html.sap-desktop a.sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage),
+a.sapMGT:hover,
+a.sapMGT:hover:not(.sapMGTPressActive) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: underline !important;
+  color: #6ca0dc !important;
+  transition: none !important;
+}
+
+html.sap-desktop a.sapMGT:focus,
+html.sap-desktop a.sapMGT:focus-visible,
+a.sapMGT:focus,
+a.sapMGT:focus-visible,
+a.sapMGT:active,
+.sapFGridContainerItemWrapper:focus,
+.sapFGridContainerItemWrapper:focus-visible,
+.sapFGridContainer:focus,
+.sapFGridContainer:focus-visible {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Kill SAP's ::before focus ring on grid item wrappers */
+.sapFGridContainerItemWrapper:focus::before,
+.sapFGridContainerItemWrapper:focus-visible::before {
+  display: none !important;
+}
+
+/* HdrContent becomes transparent so children are flex items */
+.sapMGTHdrContent {
+  display: contents !important;
+}
+
+/* Title: order 1 */
+.sapMGTHdrTxt {
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  order: 1 !important;
+}
+
+/* Number content: order 2 - unwrap so numbers share flex baseline */
+.sapMGTContent {
+  display: contents !important;
+}
+
+/* Subtitle: order 3 */
+.sapMGTSubHdrTxt {
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 0 0 4px !important;
+  vertical-align: baseline !important;
+  order: 3 !important;
+}
+
+/* Subtitle gets 15px gap when no number is present */
+a.sapMGT:not(:has(.sapMNCValue)) .sapMGTSubHdrTxt {
+  margin-left: 15px !important;
+}
+
+.sapMGTSubHdrTxt span,
+.sapMGTSubHdrTxt .sapMText {
+  font-size: 14px !important;
+  color: #888 !important;
+  display: inline !important;
+}
+
+/* Inner containers of number content - unwrap all wrappers */
+.sapMGTContent .sapMTileCnt,
+.sapMGTContent .sapMTileCntContent,
+.sapMNCAnimation,
+.sapMNC {
+  display: contents !important;
+}
+
+.sapMNCInner {
+  display: inline !important;
+  height: auto !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 0 0 15px !important;
+  position: static !important;
+  order: 2 !important;
+}
+
+/* Title text */
+.sapMGTTitle,
+.sapMGTTitle span {
+  font-weight: normal !important;
+  font-size: 14px !important;
+  display: inline !important;
+  -webkit-line-clamp: unset !important;
+  max-height: none !important;
+  white-space: normal !important;
+  color: #d0d0d0 !important;
+}
+
+/* Number value container */
+.sapMNCValue {
+  display: inline !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  font-family: "72", "72full", Arial, Helvetica, sans-serif !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: normal !important;
+  vertical-align: baseline !important;
+}
+
+/* The actual number text span - NOT the icon */
+.sapMNCValue span.sapMNCSmallFontSize:not(.sapUiIcon),
+.sapMNCValue span:not(.sapUiIcon):not(.sapMNCIconImage) {
+  display: inline !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  font-family: "72", "72full", Arial, Helvetica, sans-serif !important;
+  position: static !important;
+  line-height: normal !important;
+  width: auto !important;
+  height: auto !important;
+  vertical-align: baseline !important;
+}
+
+/* Semantic colors */
+.sapMNCValue.Good, .sapMNCValue.Good span:not(.sapUiIcon) { color: rgb(151, 221, 64) !important; }
+.sapMNCValue.Error, .sapMNCValue.Error span:not(.sapUiIcon) { color: rgb(250, 97, 97) !important; font-weight: 700 !important; }
+.sapMNCValue.Critical, .sapMNCValue.Critical span:not(.sapUiIcon) { color: rgb(232, 184, 0) !important; }
+.sapMNCValue.Neutral, .sapMNCValue.Neutral span:not(.sapUiIcon) { color: #888 !important; }
+
+/* Section title */
+.sapUshellSectionTitle {
+  font-weight: 600 !important;
+  margin: 12px 0 2px 0 !important;
+  padding: 0 !important;
+  text-transform: none !important;
+}
+
+/* First section aligns with subsequent section spacing */
+.sapUshellPageSection:first-of-type .sapUshellSectionTitle {
+  margin-top: 12px !important;
+}
+
+/* Section spacing */
+.sapUshellSection { padding: 0 !important; margin: 0 !important; }
+.sapUshellPageSection { padding: 0 !important; margin: 0 !important; }
+.sapUshellPage { padding: 20px 56px 4px 56px !important; }
+.sapUshellSection > span[class*="sapUiHidden"] { display: none !important; }

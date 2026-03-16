@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "ETHIS Compact View",
+  "version": "1.0",
+  "description": "Replaces SAP Fiori tile layout with compact link lists in ETHIS",
+  "content_scripts": [
+    {
+      "matches": ["https://ethis.ethz.ch/*"],
+      "css": ["ethis.css"],
+      "run_at": "document_start"
+    }
+  ]
+}
